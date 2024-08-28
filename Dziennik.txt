@@ -38,7 +38,9 @@ obiektu klasy "Przewoznik", a następnie dodaje obiekt do `vectora`. Wyszukiwani
 kliknięciu "szukaj". Algorytm ustawia iterator na pierwszym elemencie `vectora` spełniającym warunki wyszukiwania, a kolejne kliknięcia przycisku przesuwają iterator do 
 następnego pasującego elementu.
 
-Aby usunąć przewoźnika, należy go wyszukać, a następnie kliknąć "usuń", co powoduje usunięcie elementu `vectora` wskazywanego przez iterator. Edycja danych przewoźnika wymaga wyszukania go, wprowadzenia nowych danych w odpowiednie pola i kliknięcia "edytuj". Algorytm następnie aktualizuje dane w elemencie `vectora` wskazywanym przez iterator na podstawie wprowadzonych wartości.
+Aby usunąć przewoźnika, należy go wyszukać, a następnie kliknąć "usuń", co powoduje usunięcie elementu `vectora` wskazywanego przez iterator. Edycja danych przewoźnika 
+wymaga wyszukania go, wprowadzenia nowych danych w odpowiednie pola i kliknięcia "edytuj". Algorytm następnie aktualizuje dane w elemencie `vectora` wskazywanym przez 
+iterator na podstawie wprowadzonych wartości.
 
 Naprawa błędów związanych z manipulacją danymi w vectorze.
 Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i 
