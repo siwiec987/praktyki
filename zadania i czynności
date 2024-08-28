@@ -1,0 +1,63 @@
+Udział w szkoleniu BHP, ochronie danych osobowych i informacji niejawnych.
+Przyswojenie procedur bezpieczeństwa oraz zasad postępowania zgodnie z RODO.
+Omówienie struktury organizacyjnej firmy i procedur współpracy wewnętrznej.
+06.08
+
+Zapoznanie ze stanowiskiem pracy i oprogramowaniem używanym w firmie.
+Analiza kodu systemu ERP.
+07.08
+
+Wykonywanie zapytań SQL w bazie danych MySQL 8, analiza danych i generowanie raportów.
+08.08
+
+Rozpoczęcie pracy nad projektem: dodanie nowego pola do systemu ERP z użyciem C++ Builder.
+Integracja nowego pola z istniejącymi komponentami i bazą danych.
+09.08
+
+Kontynuacja pracy nad projektem: dodanie rozwijanego menu do wyboru przewoźnika w systemie ERP.
+Integracja z bazą danych i umożliwienie aktualizacji danych za pomocą zapytań SQL.
+12.08
+
+Kontynuacja pracy: dodanie możliwości zablokowania przewoźnika i integracja z raportowaniem.
+Testowanie i naprawa błędów.
+13.08
+
+Rozpoczęcie modułu "Przewoźnicy i Kierowcy": dodanie funkcji dodawania, usuwania, edytowania oraz wyszukiwania przewoźników.
+Naprawa błędów i rozwiązywanie problemów z integracją w projekcie.
+14.08
+
+Dodanie zakładki z kierowcami do modułu "Przewoźnicy i Kierowcy".
+Implementacja funkcji przypisywania id przewoźnika do kierowcy oraz rozszerzenie funkcji wyszukiwania.
+Naprawa błędów i refaktoryzacja kodu.
+19.08
+
+Rozwój modułu "Przewoźnicy i Kierowcy": zastosowanie komponentów TDBGrid, TDBEdit, TDBNavigator oraz TdxMemData.
+Poszerzenie wiedzy na temat generowania raportów z użyciem FastReport i implementacja funkcji generowania dokumentów.
+20.08
+
+Ulepszanie funkcji zarządzania danymi w module "Przewoźnicy i Kierowcy".
+Aktualizacja interfejsów użytkownika, dodanie filtrów wyszukiwania i walidacja danych.
+21.08
+
+Implementacja funkcji pobierania danych o krajach i walutach z API.
+Analiza i testowanie API za pomocą narzędzia Postman, przetwarzanie danych JSON i integracja z bazą danych.
+22.08
+
+Zapoznanie się ze wzorcami projektowymi (Fabryka Abstrakcyjna, Budowniczy, Singleton).
+Implementacja wzorców w C++ oraz optymalizacja kodu.
+23.08
+
+Utworzenie nowych tabel w bazie danych oraz implementacja triggerów do automatyzacji aktualizacji danych.
+Rozwój interfejsu do zarządzania danymi i monitorowania wartości sprzedaży.
+26.08
+
+Pobieranie i konwersja danych SVG dotyczących flag krajów.
+Obsługa formatu SVG i konwersja do formatu PNG za pomocą API CloudConvert.
+27.08
+
+Kontynuacja pracy nad wyświetlaniem flag krajów: implementacja konwersji SVG na PNG oraz integracja z komponentem TImage.
+Rozwiązywanie problemów związanych z konwersją i pobieraniem danych.
+28.08
+
+Podsumowanie projektu: przegląd funkcjonalności, refaktoryzacja kodu, optymalizacja algorytmów.
+Uporządkowanie stanowiska pracy i usunięcie plików pozostałych po praktykach.
