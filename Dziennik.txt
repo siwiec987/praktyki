@@ -12,121 +12,180 @@ Zapoznanie ze stanowiskiem pracy, oprogramowaniem stosowanym w procesach roboczy
 Analiza kodu systemu ERP.
 ------------------------------------------------------------------------------------------------------------------------------------------
 07.08
-Wykonywanie zapytań SQL do firmowej bazy danych MySQL w wersji 8, obejmujące analizę danych, operacje na tabelach oraz generowanie raportów zgodnie z wymaganiami organizacji.
+Wykonywanie zapytań SQL do firmowej bazy danych MySQL w wersji 8, obejmujące analizę danych, operacje na tabelach oraz generowanie raportów zgodnie z wymaganiami 
+organizacji.
 ------------------------------------------------------------------------------------------------------------------------------------------
 08.08
-Rozpoczęcie pracy nad projektem. Dodanie nowego pola do systemu ERP, korystając z C++ Builder i konrolek developer tools. Integracja tego pola z istniejącymi komponentami programu oraz z bazą danych, obejmująca zarówno dostosowanie interfejsu użytkownika, jak i konfigurację połączeń do bazy danych w celu zapewnienia poprawnej wymiany danych.
+Rozpoczęcie pracy nad projektem. Dodanie nowego pola do systemu ERP, korystając z C++ Builder i konrolek developer tools. Integracja tego pola z istniejącymi komponentami 
+programu oraz z bazą danych, obejmująca zarówno dostosowanie interfejsu użytkownika, jak i konfigurację połączeń do bazy danych w celu zapewnienia poprawnej wymiany danych.
 ------------------------------------------------------------------------------------------------------------------------------------------
 09.08
-Kontynuacja pracy nad projektem. Dodanie rozwijanego menu z wyborem przewoźnika w dziale sprzedaży systemu erp. Integracja z istniejącymi komponentami programu oraz z bazą danych. Możliwość dodawania oraz usuwania przewoźników z poziomu słownika dostępnego w systemie, co skutkuje aktualizacją danych w bazie danych za pomocą zapytań SQL. 
+Kontynuacja pracy nad projektem. Dodanie rozwijanego menu z wyborem przewoźnika w dziale sprzedaży systemu erp. Integracja z istniejącymi komponentami programu oraz z bazą 
+danych. Możliwość dodawania oraz usuwania przewoźników z poziomu słownika dostępnego w systemie, co skutkuje aktualizacją danych w bazie danych za pomocą zapytań SQL. 
 ------------------------------------------------------------------------------------------------------------------------------------------
 12.08
-Kontynuacja pracy nad projektem. Dodanie możliwości zablokowania danego przewoźnika z poziomu słownika. Po wyborze przewoźnika system weryfikuje, czy przewoźnik został zablokowany. Jeśli tak - pyta, czy utworzyć alternatywę.
+Kontynuacja pracy nad projektem. Dodanie możliwości zablokowania danego przewoźnika z poziomu słownika. Po wyborze przewoźnika system weryfikuje, czy przewoźnik został 
+zablokowany. Jeśli tak - pyta, czy utworzyć alternatywę.
 Dołączenie dodanych w ostatnich dniach pól do wydruku dokumentów, za pomocą narzędzia FastReport.
 
 Testowanie funkcjonalności zablokowania przewoźnika i generowania raportów, a także naprawa błędów wykrytych podczas testów.
 ------------------------------------------------------------------------------------------------------------------------------------------
 13.08
-Rozpoczęto pracę nad modułem "Przewoźnicy i Kierowcy". Do nawigatora systemowego dodano przycisk, który otwiera nowe okno zawierające pola tekstowe "id", "nazwa", "miasto", przyciski "dodaj", "usuń", "edytuj", opcję wyszukiwania przewoźników według wybranego atrybutu z rozwijanego menu oraz obszar wyświetlający wyniki przeprowadzonych operacji. Do przechowywania danych o przewoźnikach wykorzystano kontener `vector` ze standardowej biblioteki C++, a do nawigacji po jego elementach zastosowano iterator.
+Rozpoczęto pracę nad modułem "Przewoźnicy i Kierowcy". Do nawigatora systemowego dodano przycisk, który otwiera nowe okno zawierające pola tekstowe "id", "nazwa", 
+"miasto", przyciski "dodaj", "usuń", "edytuj", opcję wyszukiwania przewoźników według wybranego atrybutu z rozwijanego menu oraz obszar wyświetlający wyniki 
+przeprowadzonych operacji. Do przechowywania danych o przewoźnikach wykorzystano kontener `vector` ze standardowej biblioteki C++, a do nawigacji po jego elementach 
+zastosowano iterator.
 
-Aby dodać przewoźnika, należy wprowadzić wartości do pól "id", "nazwa", "miasto" i kliknąć przycisk "dodaj". Algorytm pobiera dane z tych pól, przypisuje je do nowego obiektu klasy "Przewoznik", a następnie dodaje obiekt do `vectora`. Wyszukiwanie przewoźnika polega na wyborze atrybutu z menu, wpisaniu wartości w polu wyszukiwania oraz kliknięciu "szukaj". Algorytm ustawia iterator na pierwszym elemencie `vectora` spełniającym warunki wyszukiwania, a kolejne kliknięcia przycisku przesuwają iterator do następnego pasującego elementu.
+Aby dodać przewoźnika, należy wprowadzić wartości do pól "id", "nazwa", "miasto" i kliknąć przycisk "dodaj". Algorytm pobiera dane z tych pól, przypisuje je do nowego 
+obiektu klasy "Przewoznik", a następnie dodaje obiekt do `vectora`. Wyszukiwanie przewoźnika polega na wyborze atrybutu z menu, wpisaniu wartości w polu wyszukiwania oraz 
+kliknięciu "szukaj". Algorytm ustawia iterator na pierwszym elemencie `vectora` spełniającym warunki wyszukiwania, a kolejne kliknięcia przycisku przesuwają iterator do 
+następnego pasującego elementu.
 
 Aby usunąć przewoźnika, należy go wyszukać, a następnie kliknąć "usuń", co powoduje usunięcie elementu `vectora` wskazywanego przez iterator. Edycja danych przewoźnika wymaga wyszukania go, wprowadzenia nowych danych w odpowiednie pola i kliknięcia "edytuj". Algorytm następnie aktualizuje dane w elemencie `vectora` wskazywanym przez iterator na podstawie wprowadzonych wartości.
 
 Naprawa błędów związanych z manipulacją danymi w vectorze.
-Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
+Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i 
+zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
 ------------------------------------------------------------------------------------------------------------------------------------------
 14.08
-Dodano zakładkę z kierowcami w module "Przewoźnicy i Kierowcy". Zakładka zawiera pola tekstowe: "id", "nazwisko", "data ważności prawa jazdy", "numer prawa jazdy", a także przyciski "dodaj", "usuń", "edytuj", możliwość wyszukiwania kierowców według atrybutu wybranego z rozwijanego menu oraz obszar wyświetlający wyniki operacji. Dane kierowców, podobnie jak dane przewoźników z poprzedniego dnia, są przechowywane w `vectorze`, a do nawigacji po jego elementach użyto kolejnego iteratora. 
+Dodano zakładkę z kierowcami w module "Przewoźnicy i Kierowcy". Zakładka zawiera pola tekstowe: "id", "nazwisko", "data ważności prawa jazdy", "numer prawa jazdy", a także 
+przyciski "dodaj", "usuń", "edytuj", możliwość wyszukiwania kierowców według atrybutu wybranego z rozwijanego menu oraz obszar wyświetlający wyniki operacji. Dane 
+kierowców, podobnie jak dane przewoźników z poprzedniego dnia, są przechowywane w `vectorze`, a do nawigacji po jego elementach użyto kolejnego iteratora. 
 
-Różnica między tymi zadaniami polega na automatycznym przypisaniu `id` przewoźnika kierowcy. Przed dodaniem kierowcy należy wyszukać odpowiedniego przewoźnika w zakładce przewoźników, aby jego `id` zostało przypisane nowemu kierowcy. Jeśli iterator przewoźników nie wskazuje żadnego przewoźnika, dodanie kierowcy nie będzie możliwe. Wyszukiwanie kierowców rozszerzono o opcję filtrowania według przypisanego przewoźnika.
+Różnica między tymi zadaniami polega na automatycznym przypisaniu `id` przewoźnika kierowcy. Przed dodaniem kierowcy należy wyszukać odpowiedniego przewoźnika w zakładce 
+przewoźników, aby jego `id` zostało przypisane nowemu kierowcy. Jeśli iterator przewoźników nie wskazuje żadnego przewoźnika, dodanie kierowcy nie będzie możliwe. 
+Wyszukiwanie kierowców rozszerzono o opcję filtrowania według przypisanego przewoźnika.
 
 Naprawa błędów związanych z przypisywaniem id przewoźnika oraz refaktoryzacja kodu w celu usprawnienia logiki przypisywania i wyszukiwania kierowców.
-Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
+Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i 
+zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
 ------------------------------------------------------------------------------------------------------------------------------------------
 19.08
-Dodanie kolejnej zakładki do modułu "Przewoźnicy i Kierowcy". Rozwiązanie zadań z poprzednich dwóch dni przy zastosowaniu alternatywnych metod, m.in. z komponentów takich jak TDBGrid, TDBEdit,TDBNavigator oraz TdxMemData. Kierowcy zostają powiązani z odpowiednim przewoźnikiem na podstawie wybranego rekordu w TDBGrid należącym do przewoźników (id przewoźnika zostaje przypisane do przew_id kierowcy). Dodano również filtrowanie kierowców po wybranym id przewoźnika.
+Dodanie kolejnej zakładki do modułu "Przewoźnicy i Kierowcy". Rozwiązanie zadań z poprzednich dwóch dni przy zastosowaniu alternatywnych metod, m.in. z komponentów takich 
+jak TDBGrid, TDBEdit,TDBNavigator oraz TdxMemData. Kierowcy zostają powiązani z odpowiednim przewoźnikiem na podstawie wybranego rekordu w TDBGrid należącym do 
+przewoźników (id przewoźnika zostaje przypisane do przew_id kierowcy). Dodano również filtrowanie kierowców po wybranym id przewoźnika.
 
-W ramach dalszego rozwoju modułu, poszerzono wiedzę na temat generowania raportów za pomocą narzędzia FastReport, analizując dokumentację techniczną. Na podstawie zdobytej wiedzy dodano funkcjonalność umożliwiającą generowanie dokumentów zawierających listę przewoźników oraz przypisanych im kierowców. Przygotowany raport jest dynamicznie tworzony na podstawie danych z programu, co pozwala na szybkie i efektywne uzyskanie informacji w formie przejrzystego dokumentu.  
+W ramach dalszego rozwoju modułu, poszerzono wiedzę na temat generowania raportów za pomocą narzędzia FastReport, analizując dokumentację techniczną. Na podstawie zdobytej 
+wiedzy dodano funkcjonalność umożliwiającą generowanie dokumentów zawierających listę przewoźników oraz przypisanych im kierowców. Przygotowany raport jest dynamicznie 
+tworzony na podstawie danych z programu, co pozwala na szybkie i efektywne uzyskanie informacji w formie przejrzystego dokumentu.  
 ------------------------------------------------------------------------------------------------------------------------------------------
 20.08
-Skoncentrowano się na dalszym rozwoju modułu "Przewoźnicy i Kierowcy" w systemie ERP, szczególnie na ulepszaniu funkcji zarządzania danymi. Celem było udoskonalenie interfejsu użytkownika oraz zapewnienie większej efektywności w operacjach takich jak dodawanie, edytowanie i usuwanie rekordów przewoźników i kierowców.
+Skoncentrowano się na dalszym rozwoju modułu "Przewoźnicy i Kierowcy" w systemie ERP, szczególnie na ulepszaniu funkcji zarządzania danymi. Celem było udoskonalenie 
+interfejsu użytkownika oraz zapewnienie większej efektywności w operacjach takich jak dodawanie, edytowanie i usuwanie rekordów przewoźników i kierowców.
 
 Przeanalizowano i zaktualizowano interfejsy użytkownika w zakładkach "Przewoźnicy" oraz "Kierowcy", aby poprawić ich funkcjonalność i przejrzystość.
-Dodano nowe funkcjonalności, takie jak lepsze filtry wyszukiwania, oraz uproszczono proces dodawania i edytowania rekordów poprzez uproszczenie formularzy wprowadzania danych.
+Dodano nowe funkcjonalności, takie jak lepsze filtry wyszukiwania, oraz uproszczono proces dodawania i edytowania rekordów poprzez uproszczenie formularzy wprowadzania 
+danych.
 
-Wprowadzono ulepszenia w mechanizmach wyszukiwania, umożliwiając bardziej zaawansowane filtrowanie danych według różnych atrybutów (np. nazwa przewoźnika, miasto, data ważności prawa jazdy).
+Wprowadzono ulepszenia w mechanizmach wyszukiwania, umożliwiając bardziej zaawansowane filtrowanie danych według różnych atrybutów (np. nazwa przewoźnika, miasto, data 
+ważności prawa jazdy).
 Implementacja dynamicznych filtrów umożliwiających użytkownikom szybkie i efektywne znajdowanie rekordów według wybranych kryteriów.
-Udoskonalenie zarządzania rekordami:
 
-Poprawiono algorytmy obsługujące dodawanie, edytowanie i usuwanie rekordów w vectorze oraz w bazie danych. W szczególności zadbano o zapewnienie, że operacje te są wykonywane w sposób bezpieczny i efektywny.
+Poprawiono algorytmy obsługujące dodawanie, edytowanie i usuwanie rekordów w vectorze. W szczególności zadbano o zapewnienie, że operacje te są wykonywane w sposób 
+bezpieczny i efektywny.
 Dodano walidację danych wejściowych, aby zminimalizować ryzyko błędów użytkownika podczas wprowadzania informacji o przewoźnikach i kierowcach.
 ------------------------------------------------------------------------------------------------------------------------------------------
 21.08
-W ramach zadania zaimplementowano funkcjonalność pobierania danych o krajach i ich walutach z zewnętrznego API "https://countriesnow.space/api/v0.1/countries/currency" przy użyciu komponentów TIdHTTP, TMemoryStream oraz TStringList w języku C++.
+W ramach zadania zaimplementowano funkcjonalność pobierania danych o krajach i ich walutach z zewnętrznego API "https://countriesnow.space/api/v0.1/countries/currency" 
+przy użyciu komponentów TIdHTTP, TMemoryStream oraz TStringList w języku C++.
 
-Przed przystąpieniem do implementacji, przeprowadzono analizę i zapoznano się z innymi API obsługiwanymi w programie, co umożliwiło lepsze zrozumienie istniejących mechanizmów integracji oraz optymalny wybór metod komunikacji z serwerami zewnętrznymi. Pozwoliło to również na wybranie odpowiednich komponentów i metod przetwarzania danych.
+Przed przystąpieniem do implementacji, przeprowadzono analizę i zapoznano się z innymi API obsługiwanymi w programie, co umożliwiło lepsze zrozumienie istniejących 
+mechanizmów integracji oraz optymalny wybór metod komunikacji z serwerami zewnętrznymi. Pozwoliło to również na wybranie odpowiednich komponentów i metod przetwarzania 
+danych.
 
 W celu lepszego zrozumienia i testowania interakcji z API, zapoznano się z narzędziem Postman, które umożliwia łatwe tworzenie, testowanie i monitorowanie zapytań HTTP.
-Przeanalizowano funkcjonalności Postmana, takie jak tworzenie kolekcji zapytań, ustawianie nagłówków, zarządzanie zmiennymi środowiskowymi oraz analizowanie odpowiedzi serwera.
-Wykorzystano Postman do testowania zapytań do API "https://countriesnow.space/api/v0.1/countries/currency", co pozwoliło na weryfikację poprawności zapytań i odpowiedzi oraz na diagnozowanie ewentualnych problemów przed implementacją w kodzie.
+Przeanalizowano funkcjonalności Postmana, takie jak tworzenie kolekcji zapytań, ustawianie nagłówków, zarządzanie zmiennymi środowiskowymi oraz analizowanie odpowiedzi 
+serwera.
+Wykorzystano Postman do testowania zapytań do API "https://countriesnow.space/api/v0.1/countries/currency", co pozwoliło na weryfikację poprawności zapytań i odpowiedzi 
+oraz na diagnozowanie ewentualnych problemów przed implementacją w kodzie.
 
-Po odebraniu odpowiedzi w formacie JSON, dane są wczytywane do obiektu JSON w celu łatwego dostępu do struktury danych. Po pomyślnym pobraniu i przetworzeniu danych, informacje o krajach i ich walutach zostają zapisane. Dane są przechowywane w kontenerze vector, a do ich obsługi użyto klasy JSON. Następnie, dane oraz przypisane im id są ładowane do obiektu TkbmMemTable w formie pojedynczych rekordów, co umożliwia czytelne wyświetlenie ich za pomocą TDBGrid oraz łatwą obsługę.
+Po odebraniu odpowiedzi w formacie JSON, dane są wczytywane do obiektu JSON w celu łatwego dostępu do struktury danych. Po pomyślnym pobraniu i przetworzeniu danych, 
+informacje o krajach i ich walutach zostają zapisane. Dane są przechowywane w kontenerze vector, a do ich obsługi użyto klasy JSON. Następnie, dane oraz przypisane im id 
+są ładowane do obiektu TkbmMemTable w formie pojedynczych rekordów, co umożliwia czytelne wyświetlenie ich za pomocą TDBGrid oraz łatwą obsługę.
 
-W trakcie realizacji zadania napotkano na problem z brakiem zwracanych danych przez serwer. Rozwiązaniem okazało się dostosowanie nagłówków żądania HTTP, takich jak UserAgent, Referer i Accept, co pozwoliło na poprawne rozpoznanie i obsługę zapytania przez serwer.
-Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
+W trakcie realizacji zadania napotkano na problem z brakiem zwracanych danych przez serwer. Rozwiązaniem okazało się dostosowanie nagłówków żądania HTTP, takich jak 
+UserAgent, Referer i Accept, co pozwoliło na poprawne rozpoznanie i obsługę zapytania przez serwer.
+Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i 
+zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
 ------------------------------------------------------------------------------------------------------------------------------------------
 22.08
-Zapoznano się ze wzorcami projektowymi: Fabryka Abstrakcyjna, Budowniczy oraz Singleton, które są powszechnie stosowane w inżynierii oprogramowania w celu poprawy struktury kodu, zwiększenia jego czytelności oraz ułatwienia utrzymania i rozbudowy aplikacji. Omówiono teoretyczne aspekty każdego z wzorców, w tym ich zastosowanie, zalety oraz potencjalne wady w różnych scenariuszach programistycznych.
+Zapoznano się ze wzorcami projektowymi: Fabryka Abstrakcyjna, Budowniczy oraz Singleton, które są powszechnie stosowane w inżynierii oprogramowania w celu poprawy 
+struktury kodu, zwiększenia jego czytelności oraz ułatwienia utrzymania i rozbudowy aplikacji. Omówiono teoretyczne aspekty każdego z wzorców, w tym ich zastosowanie, 
+zalety oraz potencjalne wady w różnych scenariuszach programistycznych.
 
-Wzorzec **Fabryka Abstrakcyjna** został przestudiowany w kontekście tworzenia rodzin powiązanych obiektów bez konieczności określania ich konkretnych klas. Wzorzec **Budowniczy** posłużył do lepszego zrozumienia procesu konstruowania złożonych obiektów poprzez stopniowe dodawanie komponentów, natomiast wzorzec **Singleton** umożliwił kontrolowanie liczby instancji danej klasy w aplikacji, zapewniając istnienie tylko jednej instancji w trakcie działania programu.
+Wzorzec "Fabryka Abstrakcyjna" został przestudiowany w kontekście tworzenia rodzin powiązanych obiektów bez konieczności określania ich konkretnych klas. Wzorzec 
+"Budowniczy" posłużył do lepszego zrozumienia procesu konstruowania złożonych obiektów poprzez stopniowe dodawanie komponentów, natomiast wzorzec "Singleton" umożliwił 
+kontrolowanie liczby instancji danej klasy w aplikacji, zapewniając istnienie tylko jednej instancji w trakcie działania programu.
 
-Następnie, poznane wzorce zaimplementowano w języku C++, tworząc przykładowe aplikacje, które ilustrowały ich praktyczne zastosowanie. Wdrożenie wzorców obejmowało opracowanie kodu źródłowego, testowanie jego działania oraz optymalizację pod kątem wydajności i efektywności. Implementacje te pozwoliły na praktyczne zrozumienie zasad projektowania obiektowego i wzorców projektowych, co przyczyniło się do pogłębienia wiedzy i umiejętności w zakresie programowania w języku C++.
+Następnie, poznane wzorce zaimplementowano w języku C++, tworząc przykładowe aplikacje, które ilustrowały ich praktyczne zastosowanie. Wdrożenie wzorców obejmowało 
+opracowanie kodu źródłowego, testowanie jego działania oraz optymalizację pod kątem wydajności i efektywności. Implementacje te pozwoliły na praktyczne zrozumienie zasad 
+projektowania obiektowego i wzorców projektowych, co przyczyniło się do pogłębienia wiedzy i umiejętności w zakresie programowania w języku C++.
 ------------------------------------------------------------------------------------------------------------------------------------------
 23.08
-Utworzono nową tabelę w bazie danych „sprzedaz_prod” z polami: XKEY (klucz główny), ID_TRANS (unikatowy identyfikator transakcji), ID_KONTRAHENTA, NAZWA_PRODUKTU, ILOSC, CENA oraz WARTOSC. Dodatkowo, stworzono tabelę „sprzedaz_podsuma”, zawierającą pola: ID_KONTRAHENTA oraz SUMA_WARTOSCI.
+Utworzono nową tabelę w bazie danych „sprzedaz_prod” z polami: XKEY (klucz główny), ID_TRANS (unikatowy identyfikator transakcji), ID_KONTRAHENTA, NAZWA_PRODUKTU, ILOSC, 
+CENA oraz WARTOSC. Dodatkowo, stworzono tabelę „sprzedaz_podsuma”, zawierającą pola: ID_KONTRAHENTA oraz SUMA_WARTOSCI.
 
-Następnie zaprojektowano i zaimplementowano triggery dla tabeli „sprzedaz_prod”, które po dodaniu nowego rekordu, jego usunięciu lub modyfikacji, automatycznie aktualizują tabelę „sprzedaz_podsuma”. Triggery zapewniają spójność danych między tabelami poprzez dynamiczne przeliczanie sumy wartości dla poszczególnych kontrahentów.
+Następnie zaprojektowano i zaimplementowano triggery dla tabeli „sprzedaz_prod”, które po dodaniu nowego rekordu, jego usunięciu lub modyfikacji, automatycznie aktualizują 
+tabelę „sprzedaz_podsuma”. Triggery zapewniają spójność danych między tabelami poprzez dynamiczne przeliczanie sumy wartości dla poszczególnych kontrahentów.
 
-Opracowano również interfejs w programie umożliwiający zarządzanie danymi w tabeli „sprzedaz_prod”, w tym dodawanie, edycję i usuwanie rekordów, a także interfejs do wyświetlania zawartości tabeli „sprzedaz_podsuma”, co ułatwia monitorowanie sumarycznej wartości sprzedaży dla każdego kontrahenta.
-Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
+Opracowano również interfejs w programie umożliwiający zarządzanie danymi w tabeli „sprzedaz_prod”, w tym dodawanie, edycję i usuwanie rekordów, a także interfejs do 
+wyświetlania zawartości tabeli „sprzedaz_podsuma”, co ułatwia monitorowanie sumarycznej wartości sprzedaży dla każdego kontrahenta.
+Po dodaniu nowych plików do projektu, wystąpił błąd "linker error". W celu rozwiązania problemu skorzystano z systemu kontroli wersji SVN, aby wycofać zmiany i 
+zidentyfikować przyczynę błędu. Po wycofaniu zmian i ponownej integracji plików problem został rozwiązany.
 ------------------------------------------------------------------------------------------------------------------------------------------
 26.08
-Zrealizowano pobieranie danych dotyczących flag krajów z zewnętrznego API https://countriesnow.space/api/v0.1/countries/flag/images. Celem było zaimplementowanie funkcji umożliwiającej użytkownikowi wyświetlanie flag krajów w aplikacji, co wymagało obsługi formatu SVG, który jest standardem dla wektorowych grafik internetowych.
+Zrealizowano pobieranie danych dotyczących flag krajów z zewnętrznego API https://countriesnow.space/api/v0.1/countries/flag/images. Celem było zaimplementowanie funkcji 
+umożliwiającej użytkownikowi wyświetlanie flag krajów w aplikacji, co wymagało obsługi formatu SVG, który jest standardem dla wektorowych grafik internetowych.
 
 Użyto komponentu TIdHTTP do wykonania zapytania HTTP GET do endpointu API.
-Aby zapewnić bezpieczne połączenie, skonfigurowano komponent TIdSSLIOHandlerSocketOpenSSL z opcjami SSL/TLS, wymuszając użycie protokołu TLS 1.2. W przypadku problemów z połączeniem, takich jak błąd "Host not found" czy "Error connecting with SSL", dokonano konfiguracji nagłówków HTTP (User-Agent, Referer) w celu zapewnienia zgodności z serwerem API.
+Aby zapewnić bezpieczne połączenie, skonfigurowano komponent TIdSSLIOHandlerSocketOpenSSL z opcjami SSL/TLS, wymuszając użycie protokołu TLS 1.2. W przypadku problemów z 
+połączeniem, takich jak błąd "Host not found" czy "Error connecting with SSL", dokonano konfiguracji nagłówków HTTP (User-Agent, Referer) w celu zapewnienia zgodności z 
+serwerem API.
 
-Po pobraniu odpowiedzi z API, dane SVG zostały zapisane do obiektu TMemoryStream. Następnie za pomocą TStringList zamieniono strumień danych na tekst, który reprezentuje zawartość pliku SVG.
-Ponieważ komponenty graficzne w używanym środowisku programistycznym (C++Builder) nie obsługują natywnie formatu SVG, zdecydowano się na poszukiwanie rozwiązania konwertującego SVG na bardziej powszechny format graficzny, jakim jest PNG.
+Po pobraniu odpowiedzi z API, dane SVG zostały zapisane do obiektu TMemoryStream. Następnie za pomocą TStringList zamieniono strumień danych na tekst, który reprezentuje 
+zawartość pliku SVG.
+Ponieważ komponenty graficzne w używanym środowisku programistycznym (C++Builder) nie obsługują natywnie formatu SVG, zdecydowano się na poszukiwanie rozwiązania 
+konwertującego SVG na bardziej powszechny format graficzny, jakim jest PNG.
 
-Błąd "HTTP/1.1 403 Forbidden": Podczas pierwszej próby pobrania danych wystąpił błąd 403. Okazało się, że wymagane było dodanie odpowiedniego nagłówka autoryzacyjnego oraz upewnienie się, że żądanie jest wysyłane z poprawną konfiguracją nagłówków.
-Brak obsługi formatu SVG: Po przeanalizowaniu dostępnych komponentów graficznych stwierdzono brak natywnej obsługi SVG, co spowodowało konieczność wykorzystania zewnętrznego API do konwersji.
+Błąd "HTTP/1.1 403 Forbidden": Podczas pierwszej próby pobrania danych wystąpił błąd 403. Okazało się, że wymagane było dodanie odpowiedniego nagłówka autoryzacyjnego oraz 
+upewnienie się, że żądanie jest wysyłane z poprawną konfiguracją nagłówków.
+Brak obsługi formatu SVG: Po przeanalizowaniu dostępnych komponentów graficznych stwierdzono brak natywnej obsługi SVG, co spowodowało konieczność wykorzystania 
+zewnętrznego API do konwersji.
 ------------------------------------------------------------------------------------------------------------------------------------------
 27.08
-Kontynuacja pracy nad wyświetlaniem flag krajów, koncentrując się na konwersji obrazów z formatu SVG na PNG. Wybrano serwis CloudConvert jako zewnętrzne API do konwersji formatów plików.
+Kontynuacja pracy nad wyświetlaniem flag krajów, koncentrując się na konwersji obrazów z formatu SVG na PNG. Wybrano serwis CloudConvert jako zewnętrzne API do konwersji 
+formatów plików.
 
-Przed przystąpieniem do implementacji, przeanalizowano szczegółową dokumentację CloudConvert, aby zrozumieć wymagania dotyczące autoryzacji, dostępnych formatów plików, parametrów zapytań oraz struktury odpowiedzi API. Pozwoliło to na prawidłowe skonfigurowanie żądań oraz zminimalizowanie ryzyka wystąpienia błędów podczas komunikacji z API.
+Przed przystąpieniem do implementacji, przeanalizowano szczegółową dokumentację CloudConvert, aby zrozumieć wymagania dotyczące autoryzacji, dostępnych formatów plików, 
+parametrów zapytań oraz struktury odpowiedzi API. Pozwoliło to na prawidłowe skonfigurowanie żądań oraz zminimalizowanie ryzyka wystąpienia błędów podczas komunikacji z 
+API.
 
 Przygotowano żądanie POST z odpowiednimi parametrami, w tym kluczem API do autoryzacji oraz informacją o formacie wejściowym (SVG) i wyjściowym (PNG).
 Przeprowadzono kilka testów, aby upewnić się, że dane są poprawnie przesyłane do serwera CloudConvert.
 
 Po pomyślnej konwersji, API CloudConvert zwracało wynikowy plik PNG w odpowiedzi.
-Dane te były następnie zapisywane w strumieniu TMemoryStream, a następnie wczytywane bezpośrednio do komponentu TImage przy użyciu metody LoadFromStream, co umożliwiło wyświetlenie flagi w aplikacji.
-Wyświetlanie flag w aplikacji:
+Dane te były następnie zapisywane w strumieniu TMemoryStream, a następnie wczytywane bezpośrednio do komponentu TImage przy użyciu metody LoadFromStream, co umożliwiło 
+wyświetlenie flagi w aplikacji.
 
 Skonfigurowano komponent TImage tak, aby wyświetlał przetworzone obrazy flag krajów.
 Użytkownik mógł teraz zobaczyć flagę wybranego kraju w interfejsie aplikacji.
 
-Błąd "HTTP/1.1 422 Unprocessable Entity": Po kilku próbach okazało się, że format danych wysyłanych do API CloudConvert był niezgodny z oczekiwaniami API. Zmodyfikowano zapytanie, aby spełniało wymagania API, co rozwiązało problem.
-Błąd związany z konwersją obrazów: Początkowo obrazy SVG były nieprawidłowo interpretowane jako pliki bitmapowe, co powodowało błędy. Poprawiono obsługę strumieni danych oraz formaty plików, co rozwiązało ten problem.
-Błąd HTTP/1.1 302 Found: Podczas próby pobrania przetworzonego pliku, serwer zwracał błąd 302, oznaczający przekierowanie. Problem polegał na tym, że klient nieprawidłowo obsługiwał przekierowanie wynikające z tego kodu odpowiedzi. Po ustawieniu właściwości HandleRedirects na true w obiekcie TIdHTTP oraz poprawnym skonfigurowaniu nagłówków i parametrów w kolejnym zapytaniu GET, klient automatycznie śledził przekierowania, co rozwiązało problem i umożliwiło poprawne pobranie pliku z serwera.
+Błąd "HTTP/1.1 422 Unprocessable Entity": Po kilku próbach okazało się, że format danych wysyłanych do API CloudConvert był niezgodny z oczekiwaniami API. Zmodyfikowano 
+zapytanie, aby spełniało wymagania API, co rozwiązało problem.
+Błąd związany z konwersją obrazów: Początkowo obrazy SVG były nieprawidłowo interpretowane jako pliki bitmapowe, co powodowało błędy. Poprawiono obsługę strumieni danych 
+oraz formaty plików, co rozwiązało ten problem.
+Błąd HTTP/1.1 302 Found: Podczas próby pobrania przetworzonego pliku, serwer zwracał błąd 302, oznaczający przekierowanie. Problem polegał na tym, że klient nieprawidłowo 
+obsługiwał przekierowanie wynikające z tego kodu odpowiedzi. Po ustawieniu właściwości HandleRedirects na true w obiekcie TIdHTTP oraz poprawnym skonfigurowaniu nagłówków 
+i parametrów w kolejnym zapytaniu GET, klient automatycznie śledził przekierowania, co rozwiązało problem i umożliwiło poprawne pobranie pliku z serwera.
 ------------------------------------------------------------------------------------------------------------------------------------------
 28.08
-Ostatni dzień praktyk poświęcono na podsumowanie zdobytej wiedzy oraz finalizację projektu. W pierwszej kolejności przeprowadzono przegląd całego projektu w systemie ERP. Przeanalizowano wszystkie zaimplementowane funkcje, takie jak dodawanie, edytowanie, usuwanie przewoźników i kierowców, wyszukiwanie oraz filtrowanie rekordów, a także integrację z zewnętrznymi API.
+Ostatni dzień praktyk poświęcono na podsumowanie zdobytej wiedzy oraz finalizację projektu. W pierwszej kolejności przeprowadzono przegląd całego projektu w systemie ERP. 
+Przeanalizowano wszystkie zaimplementowane funkcje, takie jak dodawanie, edytowanie, usuwanie przewoźników i kierowców, wyszukiwanie oraz filtrowanie rekordów, a także 
+integrację z zewnętrznymi API.
 
-Dokonano ostatecznego przeglądu kodu źródłowego w celu wyeliminowania ewentualnych błędów i zoptymalizowania algorytmów. Skupiono się na poprawie wydajności, refaktoryzacji kodu oraz uproszczeniu skomplikowanych fragmentów, co pozwoliło na lepszą czytelność i łatwiejsze utrzymanie aplikacji. Szczególną uwagę poświęcono na zapewnienie, że wszystkie funkcje są odpowiednio przetestowane, a wszelkie napotkane problemy zostały skutecznie rozwiązane.
+Dokonano ostatecznego przeglądu kodu źródłowego w celu wyeliminowania ewentualnych błędów i zoptymalizowania algorytmów. Skupiono się na poprawie wydajności, 
+refaktoryzacji kodu oraz uproszczeniu skomplikowanych fragmentów, co pozwoliło na lepszą czytelność i łatwiejsze utrzymanie aplikacji. Szczególną uwagę poświęcono na 
+zapewnienie, że wszystkie funkcje są odpowiednio przetestowane, a wszelkie napotkane problemy zostały skutecznie rozwiązane.
 
 Uporządkowanie stanowiska, usunięcie plików pozostawionych na stanowisku.
 ------------------------------------------------------------------------------------------------------------------------------------------
-kontrolki developer express, mysql 8, fastreport, stl, vecotr, system erp, dział sprzedaży, kontrolki indy, testy, poprawki , svn
